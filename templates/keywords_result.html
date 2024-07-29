@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracted Keywords</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .keywords {
+            margin-top: 20px;
+        }
+
+        .keywords h3 {
+            color: #007bff;
+        }
+
+        .keywords-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .keyword-item {
+            font-size: 16px;
+            color: #007bff;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Extracted Keywords</h1>
+        <div class="keywords">
+            <h3>Extracted Keywords:</h3>
+            <div class="keywords-container">
+                {% for keyword in keywords %}
+                    <div class="keyword-item">{{ keyword }}</div>
+                {% else %}
+                    <div class="keyword-item">No keywords extracted.</div>
+                {% endfor %}
+            </div>
+        </div>
+        <a href="/" class="button">Back to Home</a>
+    </div>
+</body>
+</html>

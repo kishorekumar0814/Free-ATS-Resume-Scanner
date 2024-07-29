@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Donut Circular Progress Bar */
+        .circle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 10px solid #ddd;
+            position: relative;
+            background: conic-gradient(
+                {{ color }} {{ match_percentage }}%,
+                #ddd {{ match_percentage }}% 100%
+            );
+        }
+        
+        .circle .inner-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 10px solid #fff;
+        }
+        
+        .percentage {
+            font-size: 24px;
+            font-weight: bold;
+            color: {{ color }};
+            margin-top: 15px;
+        }
+
+        .keywords {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .keywords h3 {
+            color: #007bff;
+        }
+
+        .keywords-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .keyword-item {
+            font-size: 16px;
+            color: {{ color }};
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .download-button {
+            background-color: #28a745;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .download-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Matching Result</h1>
+        <div class="results">
+            <div class="circle-container">
+                <div class="circle">
+                    <div class="inner-circle"></div>
+                </div>
+                <div class="percentage">{{ match_percentage|round(2) }}%</div>
+            </div>
+            <div class="keywords">
+                <h3>Matched Keywords:</h3>
+                <div class="keywords-container">
+                    {% for keyword in matched_keywords %}
+                        <div class="keyword-item">{{ keyword }}</div>
+                    {% else %}
+                        <div class="keyword-item">No keywords matched.</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="/" class="button">Back to Home</a>
+            <a href="{{ download_url }}" class="button download-button">Download Result as PDF</a>
+        </div>
+    </div>
+</body>
+</html>
