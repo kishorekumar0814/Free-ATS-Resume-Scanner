@@ -106,7 +106,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 For additional information or to contribute to the project, please reach out via email:
 
-- **Email**: [your-email@gmail.com](mailto:kishorekumar1409@gmail.com)
+- **Email**: [Gmail](mailto:kishorekumar1409@gmail.com)
 
 For any issues or contributions, please open an issue or submit a pull request on the [GitHub repository](https://github.com/kishorekumar0814/free-ats-resume-scanner).
 
