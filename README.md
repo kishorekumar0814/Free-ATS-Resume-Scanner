@@ -42,7 +42,7 @@ The **Free ATS Resume Scanner** is a web application developed using Python Flas
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/your-username/free-ats-resume-scanner.git
+    git clone https://github.com/kishorekumar0814/free-ats-resume-scanner.git
     cd free-ats-resume-scanner
     ```
 
